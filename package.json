@@ -23,6 +23,9 @@
   "homepage": "https://github.com/djphan/ProjectC4",
   "dependencies": {
     "express": "^4.12.3",
+    "express-params": "0.0.3",
+    "jade": "^1.9.2",
+    "mobile-detect": "^1.0.0",
     "mongoose": "^4.0.2"
   }
 }
