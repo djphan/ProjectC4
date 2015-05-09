@@ -1,7 +1,7 @@
 //Define variables
 var config = require('config.json')('./config.json');
 var passport = require('passport')
-	, LocalStrategy = require('passport-local').Strategy
+  , LocalStrategy = require('passport-local').Strategy
   , SteamStrategy = require('passport-steam').Strategy;
 var http = require('http');
 
@@ -29,7 +29,7 @@ passport.use(new LocalStrategy(
 passport.use(new SteamStrategy({
     returnURL: 'http://127.0.0.1:3000/',
     realm: 'http://127.0.0.1:3000/',
-    apiKey: config.steamkey
+    apiKey: config.steamKey
   },
   function(identifier, profile, done) {
     User.findByOpenID({ openId: identifier }, function (err, user) {
@@ -47,11 +47,11 @@ app.post('/login-steam',
 
 //Gets for main page and failure to login
 app.get('/', function (req, res) {
-	res.sendfile('index.html');
+  res.sendfile('index.html');
 });
 
 app.get('/failure', function (req, res) {
-	res.sendfile('failure.html');
+  res.sendfile('failure.html');
 });
 
 //Gets for Steam Authentication
@@ -72,10 +72,10 @@ app.get('/auth/steam/return',
 //Serve everything
 var server = app.listen(3000, function () {
 
-	var host = '127.0.0.1';
-	var port = server.address().port;
+  var host = '127.0.0.1';
+  var port = server.address().port;
 
-	console.log('Example app listening at http://%s:%s', host, port);
+  console.log('Example app listening at http://%s:%s', host, port);
 
 });
 
