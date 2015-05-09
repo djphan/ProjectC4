@@ -1,4 +1,5 @@
 //Define variables
+var config = require('config.json')('./config.json');
 var passport = require('passport')
 	, LocalStrategy = require('passport-local').Strategy
   , SteamStrategy = require('passport-steam').Strategy;
@@ -28,7 +29,7 @@ passport.use(new LocalStrategy(
 passport.use(new SteamStrategy({
     returnURL: 'http://127.0.0.1:3000/',
     realm: 'http://127.0.0.1:3000/',
-    apiKey: 'your api key'
+    apiKey: config.steamkey
   },
   function(identifier, profile, done) {
     User.findByOpenID({ openId: identifier }, function (err, user) {
