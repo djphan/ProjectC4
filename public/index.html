@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>C4 - News</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=600px, initial-scale=1.0">
+		<link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:400,700">
+		<link rel="stylesheet" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	</head>
+	<body ng-app="myapp">
+		<!-- Menu -->
+		<div id="nav">
+			<div id="nav-content" class="page-center">
+				<a href="#" id="nav-brand">C4</a>
+				<div id="nav-left">
+					<a href="#">News</a>
+					<a href="#">Rankings</a>
+				</div>
+				<div id="nav-right">
+					<a href="#">Sign In</a>
+					<a href="#">Register</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Content -->
+		<div id="special">
+			<div id="special-content" class="page-center">
+				<div id="special-content-middle">
+					<div id="special-content-title">Rock &amp; Roll!</div>
+					<div id="special-content-text">Look how sweet this website looks, guys. Not very, but whatever. It doesn't matter right now, we'll get there eventually</div>
+				</div>
+			</div>
+		</div>
+		<div id="news" ng-controller="newsController">
+			<div class="news-article page-center" ng-repeat="article in articles">
+				<div class="news-article-icon" style="background:url('images/icons/c4.png')">
+					<!-- TODO: Gravatar? -->
+					
+				</div>
+				<div class="news-article-title">{{ article.title }} <em style="font-weight:400">({{ article.author }} on {{ article.created | date:'medium' }})</em></div>
+				<div class="news-article-content">{{ article.content }}</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script>
+			var app = angular.module('myapp',[]);
+			app.controller('newsController', function($scope, $http) {
+				$scope.articles = [];
+				$scope.isBusy = true;
+				$http.get("data/news")
+				.then(function(result) {
+					// Success
+					angular.copy(result.data, $scope.articles);
+				}, function() {
+					// Error
+					alert("Could not load news articles");
+				}).then(function() {
+					$scope.isBusy = false;
+				});
+			});
+		</script>
+	</body>
+</html>

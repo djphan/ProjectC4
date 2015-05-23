@@ -1,0 +1,124 @@
+html {
+	min-height:100%;
+}
+
+body {
+	background-attachment:fixed,fixed;
+	background-image:url("/images/dot.png"),url("/images/frittata.jpg");
+	background-position:center center,center center;
+	background-repeat:repeat,no-repeat;
+	background-size:auto,cover;
+	
+	font-family:'Raleway', sans-serif;
+	
+	margin:0;
+	padding:0;
+}
+
+/* Formatting */
+.page-center {
+	min-width:600px;
+	max-width:1200px;
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+
+/* Navigation */
+#nav {
+	background:#FFF;
+	display:table;
+	font-size: 12pt;
+	width:100%;
+}
+#nav-content div {
+	display:table;
+	height: 38px;
+}
+#nav-left {
+	float:left;
+	line-height:30px;
+}
+#nav-right {
+	float:right;
+	line-height:30px;
+}
+#nav a {
+	display:inline-block;
+	font-weight:700;
+	padding:4px;
+	text-decoration:none;
+}
+#nav-left a {
+	color:#444;
+	padding:4px 18px;
+}
+#nav-right a {
+	color:#444;
+	padding:4px 18px;
+}
+#nav-left a:hover, #nav-right a:hover {
+	background: #DDD;
+	text-decoration:underline;
+}
+#nav-brand {
+	border-right:1px solid #000;
+	color:#000;
+	float:left;
+	font-size:24px;
+	line-height:30px;
+	text-align:center;
+	text-decoration:none;
+	width:88px;
+}
+#nav-brand:hover {
+	background:none;
+	text-decoration:none;
+}
+
+/* Content */
+#special {
+	background:rgba(255,255,255,0.5);
+	display:table;
+	width:100%;
+}
+#special-content {
+	background:rgba(255,255,255,0.5);
+	display:table;
+	height:250px;
+}
+#special-content-middle {
+	display:table-cell;
+	vertical-align:middle;
+}
+#special-content-middle div {
+	display:block;
+}
+#special-content-title {
+	display:block;
+	font-size:32pt;
+	font-weight:700;
+	padding:0 0 0 24px;
+}
+#special-content-text {
+	font-size:16pt;
+	padding:0 0 0 12px;
+}
+.news-article {
+	background:rgba(255,255,255,0.5);
+	font-size:12pt;
+	min-height:104px;
+	margin:8px auto;
+}
+.news-article-icon {
+	float:left;
+	height:88px;
+	width:88px;
+	margin:4px;
+	padding:4px;
+}
+.news-article-title {
+	font-size:14pt;
+	font-weight:700;
+	padding:4px 0;
+}
