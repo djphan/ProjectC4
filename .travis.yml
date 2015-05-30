@@ -3,4 +3,4 @@ node_js:
   - "0.12"
 script: cd server && npm install && npm test
 notifications:
-  slack: c4esports:21P7CSERnatIlidGZFWl0Dgb
+  slack: c4esports:BMTmjLviPxybqXQZmmTVLhSK
