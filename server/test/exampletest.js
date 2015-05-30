@@ -10,6 +10,13 @@ vows.describe('Division by Zero').addBatch({
             assert.equal (topic, Infinity);
         }
     },
+    'add number': {
+        topic: function () { return 5 + 4 },
+
+        '9': function (topic) {
+            assert.equal (topic, 9);
+        }
+    },
     'but when dividing zero by zero': {
         topic: function () { return 0 / 0 },
 
