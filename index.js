@@ -21,8 +21,14 @@ var newsSchema = new Schema({
 });
 newsSchema.statics.allOfTheArticles = function(callback) {
 	// -_id removes the id from being returned
-	return this.find({}, '-_id', callback);
+	return this.find({}, '-_id', callback).sort({ "created" : -1 });
 };
+
+
+app.get('/data/ip', function(req, res) {
+	res.json({ ip: req.ip, hostname: req.hostname });
+});
+
 var News = mongoose.model('News', newsSchema);
 mongoose.connect('mongodb://localhost/test', function(err, res) {
 	if(err) {
@@ -30,10 +36,6 @@ mongoose.connect('mongodb://localhost/test', function(err, res) {
 	} else {
 		console.log("Connected to MongoDB!");
 	}
-});
-
-app.get('/data/ip', function(req, res) {
-	res.json({ ip: req.ip, hostname: req.hostname });
 });
 app.get('/data/news', function(req, res) {
 	var articleList = [];

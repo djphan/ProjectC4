@@ -11,6 +11,7 @@ body {
   color:#000;
   font-family:'Open Sans', sans-serif;
   font-size:12px;
+  height: auto;
 }
 html {
   min-height:100%;
@@ -28,6 +29,11 @@ html {
   top:0px;
   left:0px;
   width:100%;
+}
+#skrollr-body {
+    float: left;
+    width: 100%;
+    height: 100%;
 }
 #navigation a {
   display:inline-block;
