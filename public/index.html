@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C4 eSports</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
   </head>
   <body ng-app="myapp">
-    <div id="navigation"><a href="#" id="navigation-home">C4</a><a href="#"><i class="fa fa-home fa"></i>Home</a><a href="#"><i class="fa fa-bars fa"></i>Rankings</a></div>
-    <div id="login-navigation"><a id="login" href="#"><i class="fa fa-sign-in fa"></i>Login</a><a id="signup" href="#"><i class="fa fa-user-plus fa"></i>Signup</a></div>
+    <div id="skrollr-body">
     <div id="content" ng-controller="newsController">
-      <div id="banner" data-0="background-position:0px 0px;" data-300="background-position:0px -150;">
+      <div id="banner" data-0-start="background-position:0px 0px;" data-100-start="background-position:0px -150px;">
         <strong>Welcome to C4 eSports!</strong>
         <span>Devoted to competitive eSports on campus!</span>
       </div>
@@ -25,7 +26,11 @@
       </article>
     </div>
     <div id="footer">Footer text goes here</div>
-    
+    </div>
+    <div id="navigation"><a href="#" id="navigation-home">C4</a><a href="#"><i class="fa fa-home fa"></i>Home</a><a href="#"><i class="fa fa-bars fa"></i>Rankings</a></div>
+    <div id="login-navigation"><a id="login" href="#"><i class="fa fa-sign-in fa"></i>Login</a><a id="signup" href="#"><i class="fa fa-user-plus fa"></i>Signup</a></div>
+
+
     <!-- Scripts -->
     <script>
       var app = angular.module('myapp',[]);
@@ -41,10 +46,27 @@
           alert("Could not load news articles");
         }).then(function() {
           $scope.isBusy = false;
+          s.refresh();
+          console.log(document.documentElement.clientWidth);
+          console.log(document.documentElement.clientHeight);
         });
       });
     </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.29/skrollr.min.js"></script>
-    <script type="text/javascript">skrollr.init({forceHeight: false});</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+    <script type="text/javascript">
+    window.onload=function(){
+    skrollr.init({
+    forceHeight: false
+    }
+    );
+    };
+    // setTimeout(skrollr.init({forceHeight: true}),500);
+    // setTimeout(skrollr.init({forceHeight: true}),500);
+  //   if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+  //   skrollr.init({
+  //       forceHeight: false
+  //   });
+  // }
+</script>
   </body>
 </html>
