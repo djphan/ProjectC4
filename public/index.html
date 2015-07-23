@@ -10,34 +10,38 @@
   </head>
   <body ng-app="myapp">
     <div id="skrollr-body">
-    <div id="content" ng-controller="newsController">
-      <div id="banner" data-0-start="background-position:0px 0px;" data-100-start="background-position:0px -150px;">
-        <strong>Welcome to C4 eSports!</strong>
-        <span>Devoted to competitive eSports on campus!</span>
-      </div>
-      <article ng-repeat="article in articles">
-        <img class="article-icon" src="images/icons/explosion.png">
-        <div class="article-content">
-          <strong>{{ article.title }}</strong><br>
-          ({{ article.author }} on {{ article.created | date:'medium' }})<br>
-          <br>
-          {{ article.content }}
-        </div>
-      </article>
-    </div>
-    <div id="footer">Footer text goes here</div>
-    </div>
-    <div id="navigation"><a href="#" id="navigation-home">C4</a><a href="#"><i class="fa fa-home fa"></i>Home</a><a href="#"><i class="fa fa-bars fa"></i>Rankings</a></div>
-    <div id="login-navigation"><a id="login" href="#"><i class="fa fa-sign-in fa"></i>Login</a><a id="signup" href="#"><i class="fa fa-user-plus fa"></i>Signup</a></div>
-
-
-    <!-- Scripts -->
-    <script>
+    	<div id="content" ng-controller="newsController">
+	      <div id="banner" data-0-start="background-position:0px 0px;" data-100-start="background-position:0px -150px;">
+	        <strong>Welcome to C4 eSports!</strong>
+	        <span>Devoted to competitive eSports on campus!</span>
+	      </div>
+	      <article ng-repeat="article in articles">
+	        <img class="article-icon" src="images/icons/explosion.png">
+	        <div class="article-content">
+	          <strong>{{ article.title }}</strong><br>
+	          ({{ article.author }} on {{ article.created | date:'medium' }})<br>
+	          <br>
+	          {{ article.content }}
+	        </div>
+	      </article>
+	    </div>
+	    
+	    <!-- TODO: Footer Text -->
+	    <!-- TODO: Privacy Statement -->
+	    <div id="footer">Footer text goes here</div>
+	  </div>
+   	<div id="navigation"><a href="#" id="navigation-home">C4</a><a href="#"><i class="fa fa-home fa"></i>Home</a><a href="#"><i class="fa fa-bars fa"></i>Rankings</a></div>
+   	<div id="login-navigation"><a id="login" href="#"><i class="fa fa-sign-in fa"></i>Login</a><a id="signup" href="#"><i class="fa fa-user-plus fa"></i>Signup</a></div>
+	
+	  <!-- Scripts -->
+	  <script>
+    	// Angular news loader
+    	// TODO: Move to a seperate js
       var app = angular.module('myapp',[]);
       app.controller('newsController', function($scope, $http) {
         $scope.articles = [];
         $scope.isBusy = true;
-        $http.get("http://c4esports.com/data/news")
+        $http.get("data/news")
         .then(function(result) {
           // Success
           angular.copy(result.data, $scope.articles);
@@ -51,22 +55,14 @@
           console.log(document.documentElement.clientHeight);
         });
       });
+
+		// Initialize Skrollr after the website loads
+    window.onload = function() {
+	    skrollr.init({
+    		forceHeight: false
+    	});
+    };
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
-    <script type="text/javascript">
-    window.onload=function(){
-    skrollr.init({
-    forceHeight: false
-    }
-    );
-    };
-    // setTimeout(skrollr.init({forceHeight: true}),500);
-    // setTimeout(skrollr.init({forceHeight: true}),500);
-  //   if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
-  //   skrollr.init({
-  //       forceHeight: false
-  //   });
-  // }
-</script>
   </body>
 </html>
