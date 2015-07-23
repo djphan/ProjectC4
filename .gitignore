@@ -1,6 +1,8 @@
+
 # Created by https://www.gitignore.io
 
 ### Node ###
+
 # Logs
 logs
 *.log
@@ -26,6 +28,9 @@ coverage
 build/Release
 
 # Dependency directory
+# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+node_modules
+
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
@@ -57,7 +62,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-=======
 # JSON Config File #
-###################
 config.json
+

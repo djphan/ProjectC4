@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  </head>
+  <body ng-app="myapp">
+    <div id="navigation"><a href="#" id="navigation-home">C4</a><a href="#"><i class="fa fa-home fa"></i>Home</a><a href="#"><i class="fa fa-bars fa"></i>Rankings</a></div>
+    <div id="login-navigation"><a id="login" href="#"><i class="fa fa-sign-in fa"></i>Login</a><a id="signup" href="#"><i class="fa fa-user-plus fa"></i>Signup</a></div>
+    <div id="content" ng-controller="newsController">
+      <div id="banner" data-0="background-position:0px 0px;" data-300="background-position:0px -150;">
+        <strong>Welcome to C4 eSports!</strong>
+        <span>Devoted to competitive eSports on campus!</span>
+      </div>
+      <article ng-repeat="article in articles">
+        <img class="article-icon" src="images/icons/explosion.png">
+        <div class="article-content">
+          <strong>{{ article.title }}</strong><br>
+          ({{ article.author }} on {{ article.created | date:'medium' }})<br>
+          <br>
+          {{ article.content }}
+        </div>
+      </article>
+    </div>
+    <div id="footer">Footer text goes here</div>
+    
+    <!-- Scripts -->
+    <script>
+      var app = angular.module('myapp',[]);
+      app.controller('newsController', function($scope, $http) {
+        $scope.articles = [];
+        $scope.isBusy = true;
+        $http.get("http://c4esports.com/data/news")
+        .then(function(result) {
+          // Success
+          angular.copy(result.data, $scope.articles);
+        }, function() {
+          // Error
+          alert("Could not load news articles");
+        }).then(function() {
+          $scope.isBusy = false;
+        });
+      });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.29/skrollr.min.js"></script>
+    <script type="text/javascript">skrollr.init({forceHeight: false});</script>
+  </body>
+</html>
