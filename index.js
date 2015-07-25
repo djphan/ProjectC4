@@ -1,7 +1,16 @@
 // Load Modules
 var express = require('express');
 var mongoose = require('mongoose');
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
 
+// SSL
+var privateKey  = fs.readFileSync('.ssh/c4esports.key.pem', 'utf8');
+var certificate = fs.readFileSync('.ssh/c4esports.cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
+// App
 var app = express();
 app.use(express.static('public'));
 
@@ -45,7 +54,12 @@ app.get('/data/news', function(req, res) {
 });
 
 // Start
-var server = app.listen(80, function() {
-	var port = server.address().port;
-	console.log('Started on port %s', port);
+var httpServer = http.createServer(app)
+var httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(80, function() {
+	console.log('Started HTTP on port 80');
+});
+httpsServer.listen(443, function() {
+	console.log('Started HTTPS on port 443');
 });
