@@ -2,7 +2,6 @@
 var express = require('express');
 var expressSession = require('express-session');
 var mongoose = require('mongoose');
-<<<<<<< HEAD
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -10,7 +9,6 @@ var bodyParser = require('body-parser');
 var config = require('steamconfig.json')('./steamconfig.json');
 var db = require('./db');
 var login = require('./login')(app);
-=======
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
