@@ -1,4 +1,4 @@
-var News = require("../models/news").News;
+var News = require("./model").News;
 
 module.exports = function(app) {
 	app.get('/data/news', function(req, res) {

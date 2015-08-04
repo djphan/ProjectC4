@@ -16,7 +16,7 @@ var credentials = {key: privateKey, cert: certificate};
 
 // Mongo & Mongoose setup
 mongoose.connection.on('error', console.error);
-mongoose.connect('mongodb://localhost/test', function(err, res) {
+mongoose.connect('mongodb://localhost/test', function(err) {
 	if(err) {
 		console.log("Error connecting to MongoDB. Error: " + err);
 	} else {
@@ -24,8 +24,10 @@ mongoose.connect('mongodb://localhost/test', function(err, res) {
 	}
 });
 
-// Load routes
-require('./app/routes')(app);
+// Load routes for each application
+fs.readdirSync('./app').forEach(function(folder) {
+	require('./app/' + folder + '/routes')(app);
+});
 
 // Serve requests
 var httpServer = http.createServer(app);
