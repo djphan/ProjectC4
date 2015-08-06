@@ -6,7 +6,7 @@
 
 <!-- Articles -->
 <article ng-repeat="article in articles">
-	<img class="article-icon" src="images/icons/explosion.png">
+	<img class="article-icon" ng-src="{{ article.icon ? article.icon : 'images/icons/explosion.png'}}">
   <div class="article-content">
     <strong>{{ article.title }}</strong><br>
     ({{ article.author }} on {{ article.created | date:'medium' }})<br>

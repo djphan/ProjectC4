@@ -137,7 +137,9 @@ article .article-content {
 article .article-icon {
   border:1px solid #666;
   float:left;
+  height:75px;
   margin-left:5px;
+  width:75px;
 }
 
 /* Footer */
