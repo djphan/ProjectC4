@@ -1,19 +1,21 @@
 // Load Modules
-var express = require('express');
-var expressSession = require('express-session');
-var mongoose = require('mongoose');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express = require('express')
+	, expressSession = require('express-session')
+	, flash = require('express-flash')
+	,	cookieParser = require('cookie-parser')
+	,	bodyParser = require('body-parser')
+	, fs = require('fs')
+	, http = require('http')
+	, https = require('https');
 
 // Requirements
-var config = require('config.json')('./config.json');
-var db = require('./db');
-var login = require('./login');
+var db = require('./db')
+	,	login = require('./login')
+	, news = require('./news');
 
-var fs = require('fs');
-var http = require('http');
-var https = require('https');
-
+/*
+	For local development comment out all the SSL certificates
+*/
 // SSL
 //var privateKey  = fs.readFileSync('.ssh/c4esports.key.pem', 'utf8');
 //var certificate = fs.readFileSync('.ssh/c4esports.cert.pem', 'utf8');
@@ -24,6 +26,7 @@ var app = express();
 app.use(express.static('public'));
 app.use(bodyParser());
 app.use(cookieParser());
+app.use(flash());
 
 // TODO: Try and Except or something Here.
 db.connectDB();
@@ -39,21 +42,44 @@ app.get('/data/ip', function(req, res) {
 
 app.get('/data/news', function(req, res) {
 	var articleList = [];
-	var stuff = News.allOfTheArticles(function(error, articles) {
+	var stuff = news.allOfTheArticles(function(error, articles) {
 		res.json(articles);
 	});
 });
 
-// Start
+// App Post Handling
+app.post('/login', login.passport.authenticate('local', {
+	successRedirect: '/',
+	failureRedirect: '/login.html',
+	failureFlash : true
+}));
 
-var httpServer = http.createServer(app)
+// Start
+/*
+	For Local development use the var server shown here.
+*/
+//Serve everything
+var server = app.listen(3000, function () {
+
+  var host = '127.0.0.1';
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+
+});
+
+/*
+	For local development comment out the httpServers seen here.
+*/
+
+//var httpServer = http.createServer(app)
 //var httpsServer = https.createServer(credentials, app);
 
-//TODO: Change Back to 80
-httpServer.listen(8000, function() {
-	console.log('Started HTTP on port 8000');
-});
 /*
+httpServer.listen(80, function() {
+	console.log('Started HTTP on port 80');
+});
+
 httpsServer.listen(443, function() {
 	console.log('Started HTTPS on port 443');
 });

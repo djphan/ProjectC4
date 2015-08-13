@@ -8,6 +8,8 @@ var Schema = mongoose.Schema;
 // TODO: Fix This (July 30 2015)
 var userSchema = new Schema({
     username: String,
+    //contactemail: String,
+    //schoolemail: String,
     password: String
 });
 
@@ -15,5 +17,3 @@ var Users = mongoose.model('User', userSchema);
 
 // Export
 module.exports.Users = Users;
-
-// Mongoose

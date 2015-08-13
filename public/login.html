@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  </head>
+
+  <body ng-app="myapp">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+
+    <div>
+        Login to C4 Esports.
+    </div>
+
+    <br/>
+
+    <form action="/login" method="post">
+          <div>
+              <label>Username:</label>
+              <input type="text" name="username"/>
+          </div>
+          <div>
+              <label>Password:</label>
+              <input type="password" name="password"/>
+          </div>
+          <div>
+              <input type="submit" value="Log In"/>
+          </div>
+        </form>
+
+
+  </body>
+
+</html>

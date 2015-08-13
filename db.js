@@ -5,17 +5,17 @@ var mongoose = require('mongoose');
 var connection = mongoose.connection;
 connection.on('error', console.error);
 
-//Exports
+//Export Connection
 module.exports = {
 	connectDB: function() {
 		// Connect to MongolDB
 		mongoose.connect('mongodb://localhost/test', function(err, res) {
 			if(err) {
 				console.log("Error connecting to MongoDB. Error: " + err);
-				return -1;
+				return connection;
 			} else {
 				console.log("Connected to MongoDB!");
-				return 1;
+				return connection;
 			}
 		});
 	}

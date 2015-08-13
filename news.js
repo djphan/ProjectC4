@@ -1,6 +1,5 @@
 // Requirements
 var mongoose = require('mongoose');
-var db = require('./db');
 
 // Mongoose Definitions
 var Schema = mongoose.Schema;
@@ -17,17 +16,18 @@ var newsSchema = new Schema({
 	}
 });
 
-// Schema Definitions
+newsSchema.statics.allOfTheArticles = function(callback) {
+	// -_id removes the id from being returned
+	return this.find({}, '-_id', callback).sort({ "created" : -1 });
+}
+
+// Fetches News from MongolDB
 var News = mongoose.model('News', newsSchema);
 
-// Exports
-module.exports.News = News;
-
+// Exports to index.js
 module.exports = {
-
-
-	newsSchema.statics.allOfTheArticles = function(callback) {
-		// -_id removes the id from being returned
-		return this.find({}, '-_id', callback).sort({ "created" : -1 });
-	};
+	// Function used to fetch all the news articles.
+	allOfTheArticles : function(error, articles) {
+		News.allOfTheArticles(error, articles);
+	}
 };
