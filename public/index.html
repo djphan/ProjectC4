@@ -1,30 +1,38 @@
 <!DOCTYPE HTML>
-<html ng-app="c4App">
+<html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>C4 eSports</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.min.js"></script>
-		<script src="app/app.js"></script>
   </head>
-  <body>
+  <body ng-app="navApp">
     <div id="skrollr-body">
-    	<div id="content">
-				<!-- Content renders here -->
-				<div ng-view></div>
-	    </div>
-	    
-	    <!-- TODO: Footer Text -->
-	    <!-- TODO: Privacy Statement -->
-	    <div id="footer">Footer text goes here</div>
-	  </div>
-   	<div id="navigation"><a href="#/" id="navigation-home">C4</a><a href="#/"><i class="fa fa-home fa"></i>Home</a><a href="#/"><i class="fa fa-bars fa"></i>Rankings</a></div>
-   	<div id="login-navigation"><a id="login" href="#"><i class="fa fa-sign-in fa"></i>Login</a><a id="signup" href="#"><i class="fa fa-user-plus fa"></i>Signup</a></div>
-	
-	  <!-- Scripts -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+      <div id="content">
+        <!-- Content renders here -->
+        <div ng-view></div>
+      </div>
+
+      <!-- TODO: Footer Text -->
+      <!-- TODO: Privacy Statement -->
+      <div id="footer">Footer text goes here</div>
+    </div>
+    <div id="navigation">
+      <a href="#/" id="navigation-home">C4</a>
+      <a href="#/"><i class="fa fa-hom fa"></i>Home</a>
+      <a href="#/"><i class="fa fa-bars fa"></i>Rankings</a>
+    </div>
+    <div id="login-navigation">
+      <a href="#" id="login"><i class="fa fa-sign-in fa"></i>Login</a>
+      <a href="#" id="signup"><i class="fa fa-user-plus fa"></i>Signup</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+    <script src="nav_app.js"></script>
+    <script src="news/news.js"></script>
   </body>
 </html>
