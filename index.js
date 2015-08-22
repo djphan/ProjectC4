@@ -1,17 +1,16 @@
 // Load Modules
 var express = require('express')
-	, expressSession = require('express-session')
-	, flash = require('express-flash')
-	,	cookieParser = require('cookie-parser')
-	,	bodyParser = require('body-parser')
-	, fs = require('fs')
-	, http = require('http')
-	, https = require('https');
+var expressSession = require('express-session')
+var flash = require('express-flash')
+var cookieParser = require('cookie-parser')
+var bodyParser = require('body-parser')
+var fs = require('fs')
+var http = require('http')
+var https = require('https');
+var mongoose = require('mongoose');
 
 // Requirements
 var db = require('./db')
-	,	login = require('./login')
-	, news = require('./news');
 
 /*
 	For local development comment out all the SSL certificates
@@ -23,6 +22,8 @@ var db = require('./db')
 
 // App
 var app = express();
+
+// Serve static content from the public directory
 app.use(express.static('public'));
 app.use(bodyParser());
 app.use(cookieParser());
@@ -54,17 +55,6 @@ app.post('/login', login.passport.authenticate('local', {
 	failureFlash : true
 }));
 
-// Start
-/*
-	For Local development use the var server shown here.
-*/
-//Serve everything
-var server = app.listen(3000, function () {
-
-  var host = '127.0.0.1';
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
 
 });
 
@@ -76,6 +66,29 @@ var server = app.listen(3000, function () {
 //var httpsServer = https.createServer(credentials, app);
 
 /*
+// SSL
+var privateKey  = fs.readFileSync('config/key.pem', 'utf8');
+var certificate = fs.readFileSync('config/cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
+// Mongo & Mongoose setup
+mongoose.connection.on('error', console.error);
+mongoose.connect('mongodb://localhost/test', function(err) {
+	if(err) {
+		console.log("Error connecting to MongoDB. Error: " + err);
+	} else {
+		console.log("Connected to MongoDB!");
+	}
+});
+
+// Load routes for each application
+fs.readdirSync('./app').forEach(function(folder) {
+	require('./app/' + folder + '/routes')(app);
+});
+
+// Serve requests
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
 httpServer.listen(80, function() {
 	console.log('Started HTTP on port 80');
 });
@@ -84,3 +97,15 @@ httpsServer.listen(443, function() {
 	console.log('Started HTTPS on port 443');
 });
 */
+
+// Start
+/*
+	For Local development use the var server shown here.
+*/
+//Serve everything
+var server = app.listen(3000, function () {
+
+  var host = '127.0.0.1';
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);

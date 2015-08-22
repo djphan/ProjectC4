@@ -4,7 +4,7 @@
   "description": "Collegiate eSports Community",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Well, we have no tests yet...\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "esports",
     "collegiate"
   ],
-  "author": "Aedan Burnett, Riley Dawson, Riley Dawson, Daniel Phan, Kent Rasmussen, Tian Wang",
+  "author": "Aedan Burnett, Riley Dawson, Daniel Phan, Kent Rasmussen, Tian Wang",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/djphan/ProjectC4/issues"
