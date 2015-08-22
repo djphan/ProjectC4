@@ -17,6 +17,20 @@ html {
   min-height:100%;
 }
 
+/* Make the placeholder text left aligned */
+::-webkit-input-placeholder {
+  text-align:left;
+  padding-left: 10px;
+  font-size: 12pt;
+}
+
+/* Allow for older Firefox */
+input:-moz-placeholder {
+  text-align:left;
+  padding-left: 10px;
+  font-size: 12pt;
+}
+
 /* Navigation */
 #navigation {
   background-color:rgba(255,255,255,0.95);
@@ -137,6 +151,61 @@ article .article-icon {
   float:left;
   margin-left:5px;
 }
+
+/* Login Page */
+loginForm {
+  width: 100%;
+}
+
+loginForm .login-body {
+  background:rgba(255, 255, 255, 0.9);
+  border:1px solid #d3d3d3;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #788588;
+  margin: 10% 10% 10% 10%;
+  padding:5px;
+  min-height:65px;
+}
+
+loginForm .login-header {
+  font-size: 20pt;
+  color: #252525;
+  padding: 10px 10px 10px 10px;
+}
+
+loginForm form {
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+}
+
+loginForm form input[type="text"] {
+  width: 200px;
+  line-height: 30pt;
+}
+
+loginForm form input[type="password"] {
+  width: 200px;
+  line-height: 30pt;
+}
+
+
+loginForm form label {
+  font-size: 14pt;
+}
+
+loginForm form div {
+    padding: 5px 0px 5px 0px;
+}
+
+loginForm form input {
+  text-align: center;
+}
+
+.tabs li {
+  float: left;
+}
+
+
 
 /* Footer */
 #footer {

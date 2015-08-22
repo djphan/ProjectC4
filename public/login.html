@@ -13,25 +13,27 @@
   <body ng-app="myapp">
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
 
-    <div>
-        Login to C4 Esports.
-    </div>
 
-    <br/>
+    <loginForm>
+      <div class="login-body">
 
-    <form action="/login" method="post">
+        <div class="login-header"> Log in to C4 eSports </div>
+
+        <form action="/login" method="post">
           <div>
-              <label>Username:</label>
-              <input type="text" name="username"/>
+            <input type="text" name="username" placeholder="Username or E-mail"/>
           </div>
           <div>
-              <label>Password:</label>
-              <input type="password" name="password"/>
+            <input type="password" name="password" placeholder="Password"/>
           </div>
           <div>
-              <input type="submit" value="Log In"/>
+            <input type="submit" value="Log In"/>
           </div>
         </form>
+
+        Did you forget your password?
+      </div>
+    </loginForm>
 
 
   </body>
