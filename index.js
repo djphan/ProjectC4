@@ -99,10 +99,9 @@ httpsServer.listen(443, function() {
 */
 
 // Start
+// For Local development use the var server shown here.
 /*
-	For Local development use the var server shown here.
 */
-//Serve everything
 var server = app.listen(3000, function () {
 
   var host = '127.0.0.1';
