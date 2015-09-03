@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "sudo node index.js",
-    "setup": "testing/setup/setup",
+    "setup": "testing/setup/setup.sh",
     "test": "echo \"Well, we have no tests yet...\" && exit 0"
   },
   "repository": {
