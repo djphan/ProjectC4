@@ -1,10 +1,10 @@
 // Requirements
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy
-  , SteamStrategy = require('passport-steam').Strategy
-  , users = require('./user')
-  , config = require('config.json')('./config.json')
-  , bCrypt = require('bcrypt');
+var bCrypt = require('bcrypt');
+var config = require('config.json')('./config.json');
+var LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport');
+var SteamStrategy = require('passport-steam').Strategy;
+var users = require('./user');
 
 // Exports
 module.exports.passport = passport;

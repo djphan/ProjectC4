@@ -4,6 +4,8 @@
   "description": "Collegiate eSports Community",
   "main": "index.js",
   "scripts": {
+    "start": "sudo node index.js",
+    "setup": "tests/setup/setup.sh",
     "test": "echo \"Well, we have no tests yet...\" && exit 0"
   },
   "repository": {
