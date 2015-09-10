@@ -1,10 +1,11 @@
 // Requirements
-var bCrypt = require('bcrypt');
 var config = require('config.json')('./config.json');
-var LocalStrategy = require('passport-local').Strategy;
+var bCrypt = require('bcrypt');
 var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var SteamStrategy = require('passport-steam').Strategy;
-var users = require('./user');
+
+var Users = require("./model").News;
 
 // Exports
 module.exports.passport = passport;
@@ -37,7 +38,7 @@ passport.use(new LocalStrategy({
   },
 
   function(req, username, password, done) {
-    users.Users.findOne({ 'username': username }, function (err, user) {
+    Users.findOne({ 'username': username }, function (err, user) {
       if (err) {
         console.log("Passport Local Strategy failled with error: " + err);
         return done(err);
