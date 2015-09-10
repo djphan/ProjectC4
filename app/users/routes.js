@@ -1,13 +1,7 @@
-var expressSession = require('express-session');
-
 var Users = require("./model").Users;
 var Login = require("./login");
 
 module.exports = function(app) {
-
-	app.use(expressSession({
-		secret: 'mySecretKey'
-	}));
 
 	// Passport Initalization
 	app.use(Login.passport.initialize());
