@@ -1,17 +1,16 @@
-<script src="news/news.js"></script>
-  <!-- Banner -->
-  <div id="banner" data-0-start="background-position:0px 0px;" data-200-start="background-position:0px -100px;">
-    <strong>Welcome to C4 eSports!</strong>
-    <span>Devoted to competitive eSports on campus!</span>
+<!-- Banner -->
+<div class="banner banner-lol" data-0-start="background-position:0px 0px;" data-200-start="background-position:0px -100px;">
+  <strong>Welcome to C4 eSports!</strong>
+  <span>Devoted to competitive eSports on campus!</span>
+</div>
+
+<!-- Articles -->
+<article ng-repeat="article in articles">
+  <img class="article-icon" ng-src="{{ article.icon ? article.icon : 'images/icons/explosion.png'}}">
+  <div class="article-content">
+    <strong class="article-title">{{ article.title }}</strong><br>
+    <strong>Posted by <a href="#" class="article-author">{{ article.author }}</a> on {{ article.created | date:'medium' }}</strong><br>
+    <br>
+    {{ article.content }}
   </div>
-  
-  <!-- Articles -->
-  <article ng-repeat="article in articles">
-    <img class="article-icon" ng-src="{{ article.icon ? article.icon : 'images/icons/explosion.png'}}">
-    <div class="article-content">
-      <strong>{{ article.title }}</strong><br>
-      ({{ article.author }} on {{ article.created | date:'medium' }})<br>
-      <br>
-      {{ article.content }}
-    </div>
-  </article>
+</article>

@@ -65,7 +65,7 @@ input:-moz-placeholder {
   color:#000;
 }
 #navigation a:not(#navigation-home) {
-  padding:0 0 0 15px;
+  padding:0 0 0 10px;
 }
 #navigation a:hover:not(#navigation-home) {
   text-decoration:underline;
@@ -111,12 +111,11 @@ input:-moz-placeholder {
 }
 
 /* Banner */
-#banner {
-  background:url('images/banners/lol.jpg') no-repeat;
-  background-size:cover;
+.banner {
+  background-color: #000;
   box-sizing: border-box;
-  color:#FFF;
   border-bottom:1px solid #333;
+  color:#FFF;
   display:table;
   vertical-align:middle;
   height:250px;
@@ -125,16 +124,20 @@ input:-moz-placeholder {
   font-size:16px;
   width:100%;
 }
-#banner span {
-  padding:0 0 0 25px;
+.banner-lol {
+  background:transparent url('images/banners/lol.jpg') no-repeat;
+  background-size:cover;
 }
-#banner strong {
+.banner span {
+  padding:0 0 0 20px;
+}
+.banner strong {
   display:block;
   font-family:'Source Sans Pro', sans-serif;
   font-weight:700;
   font-size:48px;
   text-shadow:0 0 6px #111;
-  padding:0 0 0 25px;
+  padding:0 0 0 20px;
 }
 
 /* Articles */
@@ -144,7 +147,7 @@ article {
 article .article-content {
   background:rgba(255, 255, 255, 0.9);
   border:1px solid #333;
-  margin:5px 5px 5px 86px;
+  margin:10px 10px 10px 95px;
   padding:5px;
   min-height:65px;
 }
@@ -152,8 +155,15 @@ article .article-icon {
   border:1px solid #666;
   float:left;
   height:75px;
-  margin-left:5px;
+  margin-left:10px;
   width:75px;
+}
+article .article-title {
+  font-size:14px;
+}
+article .article-author {
+  color:#999
+  text-decoration: none;
 }
 
 /* Login Page */

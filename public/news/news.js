@@ -16,11 +16,9 @@ newsApp.controller('newsController', function($scope, $http) {
     alert("Could not load news articles :(");
   }).then(function() {
     // Initialize Skrollr
-    window.onload = function() {
-      skrollr.init({
-        forceHeight: false
-      });
-    };
+    skrollr.init({
+      forceHeight: false
+    });
     $scope.isBusy = false;
   });
 });
