@@ -14,4 +14,12 @@ navApp.config(function($routeProvider) {
   .when('/signup', {
     templateUrl: 'signup/signup.html'
   });
+})
+
+.controller('navController', function($scope) {
+    // TODO login check logic
+    $scope.isLoggedIn = function() {
+
+    };
+
 });

@@ -18,13 +18,17 @@
       <!-- TODO: Privacy Statement -->
       <div id="footer">Footer text goes here</div>
     </div>
-    <div id="navigation">
+    <div id="navigation" ng-controller="navController">
       <a href="#/" id="navigation-home">C4</a>
       <a href="#/"><i class="fa fa-hom fa"></i>Home</a>
       <a href="#/"><i class="fa fa-bars fa"></i>Rankings</a>
-      <div id="navigation-login">
+      <div id="navigation-login" ng-hide="isLoggedIn" class="ng-hide">
         <a href="https://c4esports.com/#/login" class="login"><i class="fa fa-sign-in fa"></i>Login</a>
         <a href="https://c4esports.com/#/signup" class="signup"><i class="fa fa-user-plus fa"></i>Signup</a>
+      </div>
+
+      <div id="navigation-logout" ng-show="isLoggedIn">
+        <a href="https://c4esports.com/#/logout" class="logout">Logout</a>
       </div>
     </div>
 
@@ -32,7 +36,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
-    
+
     <!-- C4 Scripts -->
     <script src="nav_app.js"></script>
     <script src="news/news.js"></script>
