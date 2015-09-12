@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>C4 eSports</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
   <body ng-app="navApp">
     <div id="skrollr-body">
@@ -18,11 +18,11 @@
       <!-- TODO: Privacy Statement -->
       <div id="footer">Footer text goes here</div>
     </div>
-    <div id="navigation" ng-controller="NavController">
-      <a href="#/" id="navigation-home">C4</a>
-      <a href="#/"><i class="fa fa-hom fa"></i>Home</a>
-      <a href="#/"><i class="fa fa-bars fa"></i>Rankings</a>
-      <div id="navigation-login" ng-hide="isLoggedIn" class="ng-hide">
+    <div class="navigation" ng-controller="NavController">
+      <a href="#/" class="navigation-home">C4</a>
+      <a href="#/" class="nav-link"><i class="fa fa-home fa "></i>Home</a>
+      <a href="#/" class="nav-link"><i class="fa fa-bars fa "></i>Rankings</a>
+      <div ng-hide="isLoggedIn" class="ng-hide navigation-button">
         <a href="https://c4esports.com/#/login" class="login"><i class="fa fa-sign-in fa"></i>Login</a>
         <a href="https://c4esports.com/#/signup" class="signup"><i class="fa fa-user-plus fa"></i>Signup</a>
       </div>
@@ -33,9 +33,9 @@
     </div>
 
     <!-- External Scripts -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
 
     <!-- C4 Scripts -->
     <script src="nav_app.js"></script>
