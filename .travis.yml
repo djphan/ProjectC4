@@ -5,8 +5,9 @@ services: mongodb
 before_script:
   - sh tests/setup_node/script.sh
   - sh tests/setup_data/script.sh
+  - sh tests/mocha/script.sh
 script:
-  - echo "There are no actual scripts to test things yet. Let's use Jasmine or something..."
+  - grunt
 notifications:
   slack:
     secure: oWxoOlr6XPgojWJ1yqyX55LPPTrp/JhkXprqtPbB/Jx3Xc4XJJplRMC9wT7GmOJ2cvY6Jq9445XX8vBK+pnIbB0IBrSrZMJH6kAluD1HvwVWHANdHYK7eI/EdwEcgnl9i1Wu3T1hKqVW58rkoIOlopKfDBq9ScwCp4fMfAmRX/s=
