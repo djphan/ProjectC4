@@ -5,7 +5,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var SteamStrategy = require('passport-steam').Strategy;
 
-var Users = require("./model").News;
+var Users = require("./model").Users;
 
 // Exports
 module.exports.passport = passport;
@@ -18,7 +18,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    users.Users.findById(id, function(err, user) {
+    Users.findById(id, function(err, user) {
         done(err, user);
     });
 });
@@ -44,12 +44,12 @@ passport.use(new LocalStrategy({
         return done(err);
       }
       if (!user) {
-        return done(null, false, req.flash('message',
+        return done(null, false, req.flash('loginmsg',
           'Username: ' + username + ' not found' ));
       }
       console.log(user);
       if (!isValidPassword(user, password)) {
-        return done(null, false, req.flash('message', 'Incorrect password'));
+        return done(null, false, req.flash('loginmsg', 'Incorrect password'));
       }
       return done(null, user);
     });
@@ -63,7 +63,7 @@ passport.use(new SteamStrategy({
     apiKey: config.steamKey
   },
   function(identifier, profile, done) {
-    users.Users.findByOpenID({ openId: identifier }, function (err, user) {
+    Users.findByOpenID({ openId: identifier }, function (err, user) {
       return done(err, user);
     });
   }

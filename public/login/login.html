@@ -4,9 +4,26 @@
 
 <!-- Login -->
 <div>
-  <form method="post" action="https://c4esports.com/login/somewhere">
-    <p><input type="text" name="login" value="" placeholder="Email"></p>
-    <p><input type="password" name="password" value="" placeholder="Password"></p>
-    <p><input type="submit" name="login" value="Login"></p> 
-  </form>
+  <loginForm>
+    <div class="login-body">
+
+      <div class="login-header"> Log in to C4 eSports </div>
+
+      {{ loginmsg }}
+
+      <form action="login" method="post">
+        <div>
+          <input type="text" name="username" placeholder="Username or E-mail"/>
+        </div>
+        <div>
+          <input type="password" name="password" placeholder="Password"/>
+        </div>
+        <div>
+          <input type="submit" value="Log In"/>
+        </div>
+      </form>
+
+      Did you forget your password?
+    </div>
+  </loginForm>
 </div>
