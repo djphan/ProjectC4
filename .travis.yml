@@ -5,6 +5,7 @@ services: mongodb
 before_script:
   - sh tests/setup_node/script.sh
   - sh tests/setup_data/script.sh
+  - npm install -g grunt-cli
 script:
   - grunt
 notifications:
