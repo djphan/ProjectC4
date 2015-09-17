@@ -8,8 +8,12 @@ module.exports = function(app) {
 	app.use(Login.passport.initialize());
 	app.use(Login.passport.session());
 
-	app.get('/#/login', function(req, res) {
-		res.render('login', { loginmsg: "YOH" })
+
+	app.get('/data/users', function(req, res) {
+		var username ="hello";
+		var stuff = Users.getOneUser(username, function(error, user) {
+			res.json(user);
+		});
 	});
 
 	// Login Post Handling

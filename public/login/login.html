@@ -8,8 +8,7 @@
     <div class="login-body">
 
       <div class="login-header"> Log in to C4 eSports </div>
-
-      {{ loginmsg }}
+      <div ng-if="message">{{ message }}</div>
 
       <form action="login" method="post">
         <div>

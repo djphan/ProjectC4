@@ -44,12 +44,12 @@ passport.use(new LocalStrategy({
         return done(err);
       }
       if (!user) {
-        return done(null, false, req.flash('loginmsg',
-          'Username: ' + username + ' not found' ));
+        return done(null, false, {message :
+          'Username: ' + username + ' not found' });
       }
       console.log(user);
       if (!isValidPassword(user, password)) {
-        return done(null, false, req.flash('loginmsg', 'Incorrect password'));
+        return done(null, false, {message: 'Incorrect password'});
       }
       return done(null, user);
     });

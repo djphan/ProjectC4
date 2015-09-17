@@ -27,6 +27,10 @@
         <a href="https://c4esports.com/#/login" class="login"><i class="fa fa-sign-in fa"></i>Login</a>
         <a href="https://c4esports.com/#/signup" class="signup"><i class="fa fa-user-plus fa"></i>Signup</a>
       </div>
+
+      <div ng-if="isAuthenticated">Hi</div>
+      {{ req.isAuthenticated() }}
+      Sup
     </div>
 
     <!-- External Scripts -->

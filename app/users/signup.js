@@ -48,6 +48,8 @@ passport.use('signup', new LocalStrategy({
         }
       });
     };
+    
     process.nextTick(findOrCreateUser);
+
   })
 );
