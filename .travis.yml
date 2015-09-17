@@ -5,7 +5,6 @@ services: mongodb
 before_script:
   - sh tests/setup_node/script.sh
   - sh tests/setup_data/script.sh
-  - sh tests/mocha/script.sh
 script:
   - grunt
 notifications:
