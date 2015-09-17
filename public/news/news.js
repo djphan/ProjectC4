@@ -4,8 +4,8 @@ newsApp.controller('newsController', function($scope, $http) {
   $scope.isBusy = true;
 
   // Clear articles
-  $scope.articles = []
-  
+  $scope.articles = [];
+
   $http.get("data/news")
   .then(function(result) {
     // Success
