@@ -7,6 +7,19 @@ var now = new Date();
 var yesterday = new Date();
 yesterday.setDate(now.getDate() - 1);
 
+//////////             News             ////////////////////////////////////////
+db.news.drop();
+
+// Data
+db.news.insert({
+  "author" : "earthiverse",
+  "title" : "Sample News Article #1",
+  "icon" : "images/icons/c4.png",
+  "lastUpdate" : now,
+  "created" : now,
+  "content" : "This is a sample news article. If you can see this, congratulations!"
+});
+
 //////////            Schools           ////////////////////////////////////////
 db.schools.drop();
 
