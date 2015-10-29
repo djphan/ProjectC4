@@ -10,7 +10,7 @@ module.exports = function(app) {
 
 
 	app.get('/data/users', function(req, res) {
-		var username ="hello";
+		var username = res.username;
 		var stuff = Users.getOneUser(username, function(error, user) {
 			res.json(user);
 		});

@@ -6,8 +6,16 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     username: String,
     password: String,
+    name: String,
+    admin: Number,
+    school: String,
     contactemail: String,
     schoolemail: String,
+    created: String,
+    accounts: {
+      leauge: {id: Number, name: String, level: Number }
+    }
+
 });
 
 // Start: What date to start looking from
