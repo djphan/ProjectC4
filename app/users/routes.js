@@ -17,6 +17,30 @@ module.exports = function(app) {
 	});
 
 	// Login Post Handling
+
+	app.get('/login', function(req, res, next) {
+
+	});
+
+	app.post('/login', function(req, res, next) {
+		Login.passport.authenticate('local', function(err, user, info) {
+			if (err) {
+				return next(err); // 500 Error
+			}
+			if (! user) {
+				//return res.json({ sucess: false, message: "loginfailed" });
+				//return done(null, false, {message: 'login failed'});
+				res.redirect('/#/login');
+			}
+			//return res.json({ sucess:true, message:"loginsucess"});
+			//return done(null, false, {message: 'login sucess'});
+			res.redirect('/');
+		})(req, res, next);
+
+	});
+
+
+	/*
 	app.post('/login', Login.passport.authenticate('local', {
 		successRedirect: '/',
 		failureRedirect: '/#/login',
@@ -28,5 +52,6 @@ module.exports = function(app) {
 		failureRedirect: '/#/signup',
 		failureFlash : true
 	}));
+	*/
 
 }

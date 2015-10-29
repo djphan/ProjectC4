@@ -24,12 +24,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 var isValidPassword = function(user, password){
-  if (password == "cornb4roastbeef") {
-    return true
-  }
-  else {
     return bCrypt.compareSync(password, user.password);
-  }
 }
 
 // Local Strategy
@@ -45,7 +40,7 @@ passport.use(new LocalStrategy({
       }
       if (!user) {
         return done(null, false, {message :
-          'Username: ' + username + ' not found' });
+          'Username: ' + username + ' not foundjhj' });
       }
       console.log(user);
       if (!isValidPassword(user, password)) {

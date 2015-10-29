@@ -6,16 +6,16 @@
 <div>
   <loginForm>
     <div class="login-body">
-
+      <input type="button" ng-click="clicker()"/>
       <div class="login-header"> Log in to C4 eSports </div>
       <div ng-if="message">{{ message }}</div>
 
       <form action="login" method="post">
         <div>
-          <input type="text" name="username" placeholder="Username or E-mail"/>
+          <input type="text" name="username" ng-model="user.username" placeholder="Username or E-mail"/>
         </div>
         <div>
-          <input type="password" name="password" placeholder="Password"/>
+          <input type="password" name="password" ng-model="user.password" placeholder="Password"/>
         </div>
         <div>
           <input type="submit" value="Log In"/>

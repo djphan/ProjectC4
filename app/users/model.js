@@ -3,17 +3,17 @@ var mongoose = require('mongoose');
 // Mongoose Definitions
 var Schema = mongoose.Schema;
 
+// UserSchema follows Kent's TestData
 var userSchema = new Schema({
     username: String,
+    university_email: String,
+    display_name: String,
+    admin: Boolean,
     password: String,
-    name: String,
-    admin: Number,
-    school: String,
-    contactemail: String,
-    schoolemail: String,
+    school: { name: String, created: String, updated: String },
     created: String,
     accounts: {
-      leauge: {id: Number, name: String, level: Number }
+      lol: {id: Number, name: String, level: Number }
     }
 
 });
@@ -23,7 +23,6 @@ var userSchema = new Schema({
 userSchema.statics.getOneUser = function(input, callback) {
 	return this.find({ username: input }, '-_id -password -__v', callback);
 };
-
 
 // Export
 module.exports = {
