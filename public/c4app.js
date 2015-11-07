@@ -1,5 +1,5 @@
 // Create module
-var c4App = angular.module('c4App', ['ngRoute']);
+var c4App = angular.module('c4App', ['ngRoute', 'd3']);
 
 // Configure routes
 c4App.config(function($routeProvider) {
@@ -13,5 +13,9 @@ c4App.config(function($routeProvider) {
   })
   .when('/signup', {
     templateUrl: 'signup/signup.html'
-  });
+  })
+  .when('/Visualizer', {
+    templateUrl: 'visualizer/visualizer.html',
+    controller: 'visualizerController'
+  })
 });

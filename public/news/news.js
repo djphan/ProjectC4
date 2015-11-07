@@ -14,9 +14,7 @@ c4App.controller('newsController', function($scope, $http) {
     alert("Could not load news articles :(");
   }).then(function() {
     // Initialize Skrollr
-    skrollr.init({
-      forceHeight: false
-    });
+
     $scope.isBusy = false;
   });
 });

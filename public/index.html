@@ -9,6 +9,7 @@
   </head>
   <body ng-app="c4App">
     <div id="skrollr-body">
+
       <div id="content">
         <!-- Content renders here -->
         <div ng-view></div>
@@ -20,13 +21,15 @@
     </div>
     <div id="navigation">
       <a href="#/" id="navigation-home">C4</a>
-      <a href="#/"><i class="fa fa-hom fa"></i>Home</a>
-      <a href="#/"><i class="fa fa-bars fa"></i>Rankings</a>
+      <a href="#/"><i class="fa fa-home"></i>Home</a>
+      <a href="#/"><i class="fa fa-bars"></i>Rankings</a>
+      <a href="#Visualizer"><i class="fa fa-cubes"></i>Visualizer</a>
       <div id="navigation-login">
         <a href="https://c4esports.com/#/login" class="login"><i class="fa fa-sign-in fa"></i>Login</a>
         <a href="https://c4esports.com/#/signup" class="signup"><i class="fa fa-user-plus fa"></i>Signup</a>
       </div>
     </div>
+
 
     <!-- External Scripts -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
@@ -35,7 +38,10 @@
 
     <!-- C4 Scripts -->
     <script src="c4app.js"></script>
+    <script src="d3.js"></script>
+    <script src="directives/d3Directives.js"></script>
     <script src="news/news.js"></script>
     <script src="login/login.js"></script>
+    <script src="visualizer/visualizer.js"></script>
   </body>
 </html>
