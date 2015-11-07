@@ -4,5 +4,9 @@
   },
   "https": {
     "port": 443
-  }
+  },
+
+  "domain": "www.c4esports.com",
+  "steamKey":""
+
 }
