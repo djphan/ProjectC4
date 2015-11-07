@@ -1,8 +1,8 @@
 // Create module
-var navApp = angular.module('navApp', ['ngRoute', 'newsApp']);
+var c4App = angular.module('c4App', ['ngRoute']);
 
 // Configure routes
-navApp.config(function($routeProvider) {
+c4App.config(function($routeProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'news/news.html',

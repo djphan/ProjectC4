@@ -1,11 +1,9 @@
-var newsApp = angular.module('newsApp', []);
-
-newsApp.controller('newsController', function($scope, $http) {
+c4App.controller('newsController', function($scope, $http) {
   $scope.isBusy = true;
 
   // Clear articles
   $scope.articles = [];
-  
+
   $http.get("data/news")
   .then(function(result) {
     // Success
