@@ -1,4 +1,4 @@
 # NOTE: Script runs from base directory
 
-# Run script in mongo
+# Import test data for c4
 mongo tests/setup_data/test_data.js
