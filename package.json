@@ -22,9 +22,16 @@
   },
   "homepage": "https://github.com/djphan/ProjectC4",
   "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.1",
     "config.json": "0.0.4",
+    "cookie-parser": "^1.4.0",
     "express": "^4.12.3",
-    "mongoose": "^4.0.2"
+    "express-session": "^1.12.1",
+    "mongoose": "^4.0.2",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "passport-steam": "^0.1.6"
   },
   "devDependencies": {
     "chai": "^3.2.0",
